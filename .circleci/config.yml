@@ -121,7 +121,7 @@ jobs:
             npm install 
             # sudo npm i --save-dev standard-version
             # sudo npm i semver
-            run test
+             npm run test
             
   scan-frontend:
     docker:
