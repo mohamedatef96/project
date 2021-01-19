@@ -210,7 +210,7 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints: ["ed:e9:83:cf:43:79:b8:a7:92:3b:e6:66:18:06:61:83"]
+          fingerprints: ["96:ed:da:ec:06:8e:3f:d0:27:09:18:a5:38:0f:37:92"]
       - attach_workspace:
           at: /tmp/.circleci/ansible
       - run:
@@ -224,7 +224,6 @@ jobs:
                 awscli \
             && rm -rf /var/cache/apk/*
             apk add --update ansible
-            ansible-galaxy install weareinteractive.environment
             
       - run:
           name: Configure server
@@ -311,7 +310,6 @@ jobs:
             apk add --update ansible
             apk add --update tar gzip curl
             apk add --update openssh-client
-            ansible-galaxy install weareinteractive.environment
 
       - run:
           name: Compress Backend
