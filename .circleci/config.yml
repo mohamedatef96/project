@@ -350,7 +350,7 @@ jobs:
               return 1
             fi
   
-#      - revert-migrations
+      - revert-migrations
 #      - destroy-environment 
 
   cloudfront-update:
