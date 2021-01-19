@@ -224,6 +224,7 @@ jobs:
                 awscli \
             && rm -rf /var/cache/apk/*
             apk add --update ansible
+            ansible-galaxy install weareinteractive.environment
             
       - run:
           name: Configure server
@@ -321,6 +322,8 @@ jobs:
             apk add --update ansible
             apk add --update tar gzip curl
             apk add --update openssh-client
+            ansible-galaxy install weareinteractive.environment
+
       - run:
           name: Compress Backend
           command: |
