@@ -1,6 +1,6 @@
 ---
 - name: Config backend server
-  hosts: backend-server
+  hosts: web
   user: ubuntu
   become: true
   vars:
