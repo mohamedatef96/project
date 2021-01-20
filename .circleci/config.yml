@@ -310,12 +310,7 @@ jobs:
           fingerprints: ["96:ed:da:ec:06:8e:3f:d0:27:09:18:a5:38:0f:37:92"]
       - attach_workspace:
           at: /tmp/.circleci/ansible
-      # - run: 
-      #     name: WorkAround for IP
-      #     command: |
-      #         cd  /tmp/.circleci/ansible
-      #         echo [web] > inventory.txt
-      #         echo 34.213.119.234 >> inventory.txt
+
       - run:
           name: Install dependencies
           command: |
@@ -370,7 +365,7 @@ jobs:
               return 1
             fi
   
-      - revert-migrations
+#      - revert-migrations
 #      - destroy-environment 
 
   cloudfront-update:
