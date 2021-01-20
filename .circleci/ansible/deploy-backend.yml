@@ -12,6 +12,7 @@
 
   environment:
       TYPEORM_CONNECTION: "{{ lookup('env','TYPEORM_CONNECTION') }}"
+      TYPEORM_PORT: 5432
       TYPEORM_HOST: "{{ lookup('env','TYPEORM_HOST') }}"
       TYPEORM_USERNAME: "{{ lookup('env','TYPEORM_USERNAME') }}"
       TYPEORM_PASSWORD: "{{ lookup('env','TYPEORM_PASSWORD') }}"
