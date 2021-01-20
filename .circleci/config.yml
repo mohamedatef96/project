@@ -239,7 +239,7 @@ jobs:
             echo TYPEORM_PASSWORD=$TYPEORM_PASSWORD >> "backend/.env"
             echo TYPEORM_DATABASE=$TYPEORM_DATABASE >> "backend/.env"
             cat backend/.env
-
+            ansible-galaxy install weareinteractive.environment
             ansible-playbook -i /tmp/.circleci/ansible/inventory.txt .circleci/ansible/configure-server.yml
       
       - revert-migrations
@@ -322,7 +322,6 @@ jobs:
             apk add --update ansible
             apk add --update tar gzip curl
             apk add --update openssh-client
-            ansible-galaxy install weareinteractive.environment
 
 
       - run:
@@ -342,6 +341,7 @@ jobs:
             echo TYPEORM_PASSWORD=$TYPEORM_PASSWORD >> "backend/.env"
             echo TYPEORM_DATABASE=$TYPEORM_DATABASE >> "backend/.env"
             cat backend/.env
+            ansible-galaxy install weareinteractive.environment
             ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i /tmp/.circleci/ansible/inventory.txt .circleci/ansible/deploy-backend.yml
       - revert-migrations
       - destroy-environment # Rollback on failure  
