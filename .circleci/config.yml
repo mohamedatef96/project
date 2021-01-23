@@ -335,7 +335,7 @@ jobs:
             ansible-galaxy install weareinteractive.environment
             ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i /tmp/.circleci/ansible/inventory.txt .circleci/ansible/deploy-backend.yml
       - revert-migrations
-      - destroy-environment # Rollback on failure  
+      - destroy-environment  
 
   smoke-test:
     docker:
