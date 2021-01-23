@@ -351,7 +351,7 @@ jobs:
           command: |
             BACKEND_IP=$(curl -H "token: IP-${CIRCLE_WORKFLOW_ID:0:9}" \
                         --request GET https://api.memstash.io/values/IP)
-            URL="http://3.137.136.119:3030/api/status"
+            URL="http://18.224.40.171:3030/api/status"
             echo $URL
             curl $URL
       - run:
@@ -452,7 +452,7 @@ workflows:
       - scan-frontend:
           requires: [build-frontend]
       - deploy-infrastructure:
-          requires: [build-backend, build-frontend]
+          requires: [build-backend, build-frontend ,test-frontend ,test-backend ,scan-backend ,scan-frontend]
       - configure-infrastructure:
           requires: [deploy-infrastructure]
       - run-migrations:
