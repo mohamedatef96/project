@@ -33,7 +33,7 @@ Resources:
           ViewerProtocolPolicy: allow-all
 
 Outputs:
-  new_WorkflowID:
+  NewWorkflowID:
     Value: !Sub ${NewWorkflowID}
     Description: URL for website hosted on S3
     Export:
