@@ -350,8 +350,8 @@ jobs:
           name: Backend smoke test
           command: |
             BACKEND_IP=$(curl -H "token: IP-${CIRCLE_WORKFLOW_ID:0:9}" \
-             --request GET https://api.memstash.io/values/IP)
-            URL="http://BACKEND_IP:3030/api/status"
+                        --request GET https://api.memstash.io/values/IP)
+            URL="http://$BACKEND_IP:3030/api/status"
             echo $URL
             curl $URL
       - run:
@@ -365,8 +365,8 @@ jobs:
               return 1
             fi
   
-#      - revert-migrations
-#      - destroy-environment 
+      - revert-migrations
+      - destroy-environment 
 
   cloudfront-update:
     docker:
@@ -399,8 +399,8 @@ jobs:
             --request PUT \
             --data "$OldWorkflowID" https://api.memstash.io/values/OldWorkflowID
       
-#      - revert-migrations
-#      - destroy-environment # Rollback on failure  
+      - revert-migrations
+      - destroy-environment # Rollback on failure  
 
   cleanup:
     docker:
@@ -454,16 +454,9 @@ workflows:
           requires: [run-migrations]
       - deploy-backend:
           requires: [run-migrations ]
-      - test-frontend:
-          requires: [build-frontend]
-      - test-backend:
-          requires: [build-backend]
-      - scan-backend:
-          requires: [build-backend]
-      - scan-frontend:
-          requires: [build-frontend]
+
       - smoke-test:
-          requires: [deploy-backend, deploy-frontend  ,test-frontend ,test-backend ,scan-backend ,scan-frontend]
+          requires: [deploy-backend, deploy-frontend  ]
       - cloudfront-update:
           requires: [smoke-test]
       - cleanup:
