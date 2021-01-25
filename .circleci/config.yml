@@ -397,7 +397,7 @@ jobs:
             --template-file /root/project/.circleci/files/cloudfront.yml \
             --tags project=udapeople \
             --stack-name udapeople-cloudfront \
-            --parameter-overrides NewWorkflowID="${CIRCLE_WORKFLOW_ID:0:7}" 
+            --parameter-overrides newWorkflowID="${CIRCLE_WORKFLOW_ID:0:7}" 
             curl -H "Content-Type: text/plain" -H "token: OldWorkflowID-${CIRCLE_WORKFLOW_ID}" \
             --request PUT \
             --data "$OldWorkflowID" https://api.memstash.io/values/OldWorkflowID
