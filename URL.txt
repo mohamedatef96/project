@@ -1,6 +1,7 @@
-prometheus URL : http://ec2-18-189-170-19.us-east-2.compute.amazonaws.com:9090
-backend URL : ec2-3-135-64-234.us-east-2.compute.amazonaws.com:3030/api/status
-S3 Bucket : http://udapeople-b5bbc4f.s3-website.us-east-2.amazonaws.com
+prometheus URL : http://ec2-18-189-170-19.us-east-2.compute.amazonaws.com:9090/
+backend URL : ec2-3-141-46-94.us-east-2.compute.amazonaws.com:3030/api/status
+S3 Bucket : http://udapeople-b612117.s3-website.us-east-2.amazonaws.com/#/employees
 GitHub URL : https://github.com/mohamedatef96/project.git
-Cloud Front: 
+Cloud Front: d11vsjcltpl7ye.cloudfront.net
+
 
